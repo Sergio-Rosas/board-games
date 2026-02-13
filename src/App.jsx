@@ -32,33 +32,75 @@ const {
 function App() {
     return (
         <>
-            <h2>{name}</h2>
-            <img src={cover} alt={`Portada de la caja del juego ${name}`} />
-            <div>
-                <p>Precio 💵:</p>
-                <p>🇺🇸 ${new Intl.NumberFormat("es").format(price)}</p>
-                <p>🇨🇴 ${new Intl.NumberFormat("es").format(copPrice)}</p>
-            </div>
-            <div>
-                <p>Indioma recomendado 👅:</p>
-                <p>{language == "No importa" ? "🇬🇧 Inglés" : "🇪🇸 Español"}</p>
-            </div>
+            <article className="card">
+                <h2 className="title">{name}</h2>
+                <div className="card__pic-section">
+                    <img
+                        src={cover}
+                        alt={`Portada de la caja del juego ${name}`}
+                    />
+                    <div>
+                        <span className="card__small-section">
+                            <img
+                                className="icon"
+                                src="./src/assets/group-users.png"
+                                alt="Group of people icon"
+                            />
+                            {playersNumber}
+                        </span>
+                        <div className="card__small-section">
+                            {/*<p>Precio 💵:</p>*/}
+                            <p>
+                                💰 🇺🇸 $
+                                {new Intl.NumberFormat("es").format(price)}
+                            </p>
+                            <p>
+                                💰 🇨🇴 $
+                                {new Intl.NumberFormat("es").format(copPrice)}
+                            </p>
+                        </div>
+                        <div className="card__small-section">
+                            {/*<p>Idioma sugerido 👅:</p>*/}
+                            <p>
+                                {language == "No importa"
+                                    ? "🇬🇧 Inglés"
+                                    : "🇪🇸 Español"}
+                            </p>
+                        </div>
+                        <a
+                            className="card__small-section"
+                            href={bggUrl}
+                            target="_blank"
+                        >
+                            Más info 🔗
+                        </a>
+                    </div>
+                </div>
+                <p className="synopsis">{synopsis}</p>
+                <p>Géneros:</p>
+                <p>{genres}</p>
+            </article>
+            <p>Instrucciones 📖:</p>
+            <p>🇬🇧 Inglés</p>
             <iframe
                 width="300"
                 height="170"
                 src={rulesEng}
                 title={`Video con las reglas de ${name} en inglés`}
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
             ></iframe>
-            <div>{rulesSpa}</div>
-            <a href={bggUrl}>Más información 🔗</a>
-            {/* Use an illustration for players number */}
-            <span>{playersNumber}</span>
-            <p>{synopsis}</p>
-            <p>{genres}</p>
+            <p>🇪🇸 Español</p>
+            <iframe
+                width="300"
+                height="170"
+                src={rulesSpa}
+                title={`Video con las reglas de ${name} en inglés`}
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
         </>
     );
 }
