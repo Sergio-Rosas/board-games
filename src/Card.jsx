@@ -1,0 +1,103 @@
+import { useState } from "react";
+
+export default function Card({game}) {
+    const {
+        name,
+        price,
+        copPrice,
+        language,
+        cover,
+        rulesEng,
+        rulesSpa,
+        bggUrl,
+        playersNumber,
+        synopsis,
+        genres,
+    } = game;
+
+    const [isTurned, setIsTurned] = useState(true);
+
+    function turning() {
+        setIsTurned((turn) => !turn);
+    }
+
+    return (
+        <>
+            <article className={`card ${isTurned ? "turn-around" : ""}`}>
+                {!isTurned ? <><h2 className="title">{name}</h2>
+                <div className="card__pic-section">
+                    <img
+                        src={cover}
+                        alt={`Portada de la caja del juego ${name}`}
+                    />
+                    <div className="card__info-section">
+                        <span className="card__small-section small-fix" title="Número de jugadores">
+                            <img
+                                className="icon"
+                                src="./src/assets/group-users.png"
+                                alt="Group of people icon"
+                            />
+                            {playersNumber}
+                        </span>
+                        <div className="card__small-section">
+                            {/*<p>Precio 💵:</p>*/}
+                            <p title="Precio en dólares">
+                                💰 🇺🇸 $
+                                {new Intl.NumberFormat("es").format(price)}
+                            </p>
+                            <p title="Precio en pesos">
+                                💰 🇨🇴 $
+                                {new Intl.NumberFormat("es").format(copPrice)}
+                            </p>
+                        </div>
+                        <div className="card__small-section">
+                            {/*<p>Idioma sugerido 👅:</p>*/}
+                            <p title="Lenguaje recomendado">
+                                {language == "No importa"
+                                    ? "🇬🇧 Inglés"
+                                    : "🇪🇸 Español"}
+                            </p>
+                        </div>
+                        <a
+                            className="card__small-section"
+                            href={bggUrl}
+                            target="_blank"
+                        >
+                            Más info 🔗
+                        </a>
+                    </div>
+                </div>
+                <div className="text">
+                    <p>{synopsis}</p>
+                    <div>
+                        <p>Géneros:</p>
+                        <p>{genres}</p>
+                    </div>
+                    <p className="text--align-right clickable" onClick={turning}>Instrucciones ↪️</p>
+                </div></> :
+                    <div className="turn-around">
+                        <h2 className="title title--centered">{name}</h2>
+                        <p>🇬🇧 Inglés</p>
+                        <iframe
+                            width="300"
+                            height="170"
+                            src={rulesEng}
+                            title={`Video con las reglas de ${name} en inglés`}
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                        ></iframe>
+                        <p>🇪🇸 Español</p>
+                        <iframe
+                            width="300"
+                            height="170"
+                            src={rulesSpa}
+                            title={`Video con las reglas de ${name} en inglés`}
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                        ></iframe>
+                        <p className="text--align-right clickable" onClick={turning}>Regresar ↪️</p>
+                    </div>}
+            </article>
+        </>
+)
+}
