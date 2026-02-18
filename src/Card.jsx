@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Card({game}) {
+export default function Card({ game }) {
     const {
         name,
         price,
@@ -15,7 +15,7 @@ export default function Card({game}) {
         genres,
     } = game;
 
-    const [isTurned, setIsTurned] = useState(true);
+    const [isTurned, setIsTurned] = useState(false);
 
     function turning() {
         setIsTurned((turn) => !turn);
@@ -24,57 +24,73 @@ export default function Card({game}) {
     return (
         <>
             <article className={`card ${isTurned ? "turn-around" : ""}`}>
-                {!isTurned ? <><h2 className="title">{name}</h2>
-                <div className="card__pic-section">
-                    <img
-                        src={cover}
-                        alt={`Portada de la caja del juego ${name}`}
-                    />
-                    <div className="card__info-section">
-                        <span className="card__small-section small-fix" title="Número de jugadores">
+                {!isTurned ? (
+                    <>
+                        <h2 className="title">{name}</h2>
+                        <div className="card__pic-section">
                             <img
-                                className="icon"
-                                src="./src/assets/group-users.png"
-                                alt="Group of people icon"
+                                src={cover}
+                                alt={`Portada de la caja del juego ${name}`}
                             />
-                            {playersNumber}
-                        </span>
-                        <div className="card__small-section">
-                            {/*<p>Precio 💵:</p>*/}
-                            <p title="Precio en dólares">
-                                💰 🇺🇸 $
-                                {new Intl.NumberFormat("es").format(price)}
-                            </p>
-                            <p title="Precio en pesos">
-                                💰 🇨🇴 $
-                                {new Intl.NumberFormat("es").format(copPrice)}
+                            <div className="card__info-section">
+                                <span
+                                    className="card__small-section small-fix"
+                                    title="Número de jugadores"
+                                >
+                                    <img
+                                        className="icon"
+                                        src="./src/assets/group-users.png"
+                                        alt="Group of people icon"
+                                    />
+                                    {playersNumber}
+                                </span>
+                                <div className="card__small-section">
+                                    {/*<p>Precio 💵:</p>*/}
+                                    <p title="Precio en dólares">
+                                        💰 🇺🇸 $
+                                        {new Intl.NumberFormat("es").format(
+                                            price,
+                                        )}
+                                    </p>
+                                    <p title="Precio en pesos">
+                                        💰 🇨🇴 $
+                                        {new Intl.NumberFormat("es").format(
+                                            copPrice,
+                                        )}
+                                    </p>
+                                </div>
+                                <div className="card__small-section">
+                                    {/*<p>Idioma sugerido 👅:</p>*/}
+                                    <p title="Lenguaje recomendado">
+                                        {language == "No importa"
+                                            ? "🇬🇧 Inglés"
+                                            : "🇪🇸 Español"}
+                                    </p>
+                                </div>
+                                <a
+                                    className="card__small-section"
+                                    href={bggUrl}
+                                    target="_blank"
+                                >
+                                    Más info 🔗
+                                </a>
+                            </div>
+                        </div>
+                        <div className="text">
+                            <p>{synopsis}</p>
+                            <div>
+                                <p>Géneros:</p>
+                                <p>{genres}</p>
+                            </div>
+                            <p
+                                className="text--align-right clickable"
+                                onClick={turning}
+                            >
+                                Instrucciones ↪️
                             </p>
                         </div>
-                        <div className="card__small-section">
-                            {/*<p>Idioma sugerido 👅:</p>*/}
-                            <p title="Lenguaje recomendado">
-                                {language == "No importa"
-                                    ? "🇬🇧 Inglés"
-                                    : "🇪🇸 Español"}
-                            </p>
-                        </div>
-                        <a
-                            className="card__small-section"
-                            href={bggUrl}
-                            target="_blank"
-                        >
-                            Más info 🔗
-                        </a>
-                    </div>
-                </div>
-                <div className="text">
-                    <p>{synopsis}</p>
-                    <div>
-                        <p>Géneros:</p>
-                        <p>{genres}</p>
-                    </div>
-                    <p className="text--align-right clickable" onClick={turning}>Instrucciones ↪️</p>
-                </div></> :
+                    </>
+                ) : (
                     <div className="card__info-section turn-around card__info-section--centered">
                         <h2 className="title title--centered">{name}</h2>
                         <div>
@@ -95,9 +111,15 @@ export default function Card({game}) {
                             ></iframe>
                             <p className="card__small-section">🇪🇸 Español</p>
                         </div>
-                        <p className="text--align-right clickable" onClick={turning}>Regresar ↪️</p>
-                    </div>}
+                        <p
+                            className="text--align-right clickable"
+                            onClick={turning}
+                        >
+                            Regresar ↪️
+                        </p>
+                    </div>
+                )}
             </article>
         </>
-)
+    );
 }
