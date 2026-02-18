@@ -16,6 +16,11 @@ img {
     inline-size: 220px;
 }
 
+iframe {
+    inline-size: 280px;
+    block-size: 160px;
+}
+
 .title {
     margin-block-end: 10px;
 }
@@ -26,7 +31,7 @@ img {
 
 .card {
     inline-size: 400px;
-    block-size: 490px;
+    block-size: 500px;
     border: 1px solid lightgray;
     border-radius: 10px;
 
@@ -81,15 +86,22 @@ img {
 }
 
 .card__info-section {
+    inline-size: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 13px;
+}
+
+.card__info-section--centered {
+    align-items: center;
 }
 
 .clickable {
+    inline-size: 100%;
     cursor: pointer;
     font-weight: 600;
     font-size: 0.85rem;
+    color: hsl(0deg 0% 40%);
 }
 .clickable:hover {
     text-decoration: underline;
@@ -97,4 +109,10 @@ img {
 
 .turn-around {
     transform: rotateY(180deg);
+}
+
+.section-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

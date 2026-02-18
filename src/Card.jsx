@@ -75,26 +75,26 @@ export default function Card({game}) {
                     </div>
                     <p className="text--align-right clickable" onClick={turning}>Instrucciones ↪️</p>
                 </div></> :
-                    <div className="turn-around">
+                    <div className="card__info-section turn-around card__info-section--centered">
                         <h2 className="title title--centered">{name}</h2>
-                        <p>🇬🇧 Inglés</p>
-                        <iframe
-                            width="300"
-                            height="170"
-                            src={rulesEng}
-                            title={`Video con las reglas de ${name} en inglés`}
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
-                        ></iframe>
-                        <p>🇪🇸 Español</p>
-                        <iframe
-                            width="300"
-                            height="170"
-                            src={rulesSpa}
-                            title={`Video con las reglas de ${name} en inglés`}
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
-                        ></iframe>
+                        <div>
+                            <iframe
+                                src={rulesEng}
+                                title={`Video con las reglas de ${name} en inglés`}
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                            ></iframe>
+                            <p className="card__small-section">🇬🇧 Inglés</p>
+                        </div>
+                        <div>
+                            <iframe
+                                src={rulesSpa}
+                                title={`Video con las reglas de ${name} en inglés`}
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                            ></iframe>
+                            <p className="card__small-section">🇪🇸 Español</p>
+                        </div>
                         <p className="text--align-right clickable" onClick={turning}>Regresar ↪️</p>
                     </div>}
             </article>
