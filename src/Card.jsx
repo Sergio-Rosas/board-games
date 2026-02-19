@@ -52,12 +52,12 @@ export default function Card({ game }) {
                                             price,
                                         )}
                                     </p>
-                                    <p title="Precio en pesos">
+                                    {copPrice !== "-" && <p title="Precio en pesos">
                                         💰 🇨🇴 $
                                         {new Intl.NumberFormat("es").format(
                                             copPrice,
                                         )}
-                                    </p>
+                                    </p>}
                                 </div>
                                 <div className="card__small-section">
                                     {/*<p>Idioma sugerido 👅:</p>*/}
@@ -82,12 +82,6 @@ export default function Card({ game }) {
                                 <p>Géneros:</p>
                                 <p>{genres}</p>
                             </div>
-                            <p
-                                className="text--align-right clickable"
-                                onClick={turning}
-                            >
-                                Instrucciones ↪️
-                            </p>
                         </div>
                     </>
                 ) : (
@@ -102,7 +96,7 @@ export default function Card({ game }) {
                             ></iframe>
                             <p className="card__small-section">🇬🇧 Inglés</p>
                         </div>
-                        <div>
+                        {rulesSpa !== "-" && <div>
                             <iframe
                                 src={rulesSpa}
                                 title={`Video con las reglas de ${name} en inglés`}
@@ -110,15 +104,15 @@ export default function Card({ game }) {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
                             ></iframe>
                             <p className="card__small-section">🇪🇸 Español</p>
-                        </div>
-                        <p
-                            className="text--align-right clickable"
-                            onClick={turning}
-                        >
-                            Regresar ↪️
-                        </p>
+                        </div>}
                     </div>
                 )}
+                <p
+                    className={`text--align-right clickable ${isTurned ? "turn-around clickable--turned" : ""}`}
+                    onClick={turning}
+                >
+                    {isTurned ? "Regresar" : "Instrucciones"} ↪️
+                </p>
             </article>
         </>
     );

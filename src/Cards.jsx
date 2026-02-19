@@ -45,10 +45,10 @@ export default function Cards() {
     }, []);
 
     return (
-        <>
-            {boardGames.map((game) => (
-                <Card game={game} />
+        <main>
+            {!isLoading && boardGames.map((game) => (
+                <Card game={game} key={game.cover}/>
             ))}
-        </>
+        </main>
     );
 }

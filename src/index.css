@@ -13,12 +13,21 @@ body {
 }
 
 img {
-    inline-size: 220px;
+    max-inline-size: 220px;
+    max-block-size: 220px;
 }
 
 iframe {
     inline-size: 280px;
     block-size: 160px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
 }
 
 .title {
@@ -30,8 +39,9 @@ iframe {
 }
 
 .card {
+    position: relative;
     inline-size: 400px;
-    block-size: 500px;
+    block-size: 520px;
     border: 1px solid lightgray;
     border-radius: 10px;
 
@@ -44,15 +54,18 @@ iframe {
 
     background-color: hsl(0deg 100% 100%);
 
-    margin-inline-start: 20px; /* Temporal */
-    margin-block-start: 20px; /* Temporal */
-
     transition: all 200ms ease-in-out;
 }
 
 .card__pic-section {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 120px;
     inline-size: 100%;
+    column-gap: 10px;
+}
+
+.card__pic-section img {
+    place-self: center;
 }
 
 .card__small-section {
@@ -97,14 +110,21 @@ iframe {
 }
 
 .clickable {
-    inline-size: 100%;
+    position: absolute;
+    inset-inline-end: 20px;
+    inset-block-end: 10px;
     cursor: pointer;
     font-weight: 600;
     font-size: 0.85rem;
     color: hsl(0deg 0% 40%);
 }
+
 .clickable:hover {
     text-decoration: underline;
+}
+
+.clickable--turned {
+    inset-inline-start: 20px;
 }
 
 .turn-around {
