@@ -46,9 +46,8 @@ export default function Cards() {
 
     return (
         <main>
-            {!isLoading && boardGames.map((game) => (
-                <Card game={game} key={game.cover}/>
-            ))}
+            {!isLoading &&
+                boardGames.map((game) => <Card game={game} key={game.cover} />)}
         </main>
     );
 }

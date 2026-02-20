@@ -52,12 +52,14 @@ export default function Card({ game }) {
                                             price,
                                         )}
                                     </p>
-                                    {copPrice !== "-" && <p title="Precio en pesos">
-                                        💰 🇨🇴 $
-                                        {new Intl.NumberFormat("es").format(
-                                            copPrice,
-                                        )}
-                                    </p>}
+                                    {copPrice !== "-" && (
+                                        <p title="Precio en pesos">
+                                            💰 🇨🇴 $
+                                            {new Intl.NumberFormat("es").format(
+                                                copPrice,
+                                            )}
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="card__small-section">
                                     {/*<p>Idioma sugerido 👅:</p>*/}
@@ -96,15 +98,19 @@ export default function Card({ game }) {
                             ></iframe>
                             <p className="card__small-section">🇬🇧 Inglés</p>
                         </div>
-                        {rulesSpa !== "-" && <div>
-                            <iframe
-                                src={rulesSpa}
-                                title={`Video con las reglas de ${name} en inglés`}
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
-                            ></iframe>
-                            <p className="card__small-section">🇪🇸 Español</p>
-                        </div>}
+                        {rulesSpa !== "-" && (
+                            <div>
+                                <iframe
+                                    src={rulesSpa}
+                                    title={`Video con las reglas de ${name} en inglés`}
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
+                                ></iframe>
+                                <p className="card__small-section">
+                                    🇪🇸 Español
+                                </p>
+                            </div>
+                        )}
                     </div>
                 )}
                 <p
