@@ -22,7 +22,7 @@ export default function Cards() {
     useEffect(() => {
         async function retrieveData() {
             setIsLoading(true);
-            const data = await fetch("/public/database.tsv");
+            const data = await fetch("/database.tsv");
             const res = await data.text();
 
             const lines = res.trim().split("\r\n");
