@@ -14,8 +14,8 @@ body {
 }
 
 img {
-    max-inline-size: 220px;
-    max-block-size: 220px;
+    max-inline-size: 180px;
+    max-block-size: 210px;
 }
 
 iframe {
@@ -39,6 +39,7 @@ header {
     position: sticky;
     inset-block-start: 0;
     z-index: 1;
+    box-shadow: -3px 3px 10px hsl(0deg 0% 80%);
 }
 
 .title {
@@ -70,7 +71,7 @@ header {
 
 .card__pic-section {
     display: grid;
-    grid-template-columns: 1fr 120px;
+    grid-template-columns: 180px 120px;
     inline-size: 100%;
     column-gap: 10px;
 }
@@ -146,4 +147,15 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+@media (max-width: 560px) {
+    header {
+        font-size: 0.9rem;
+        padding-block: 20px;
+    }
+
+    h2 {
+        line-height: 1.1;
+    }
 }

@@ -26,7 +26,7 @@ export default function Card({ game }) {
             <article className={`card ${isTurned ? "turn-around" : ""}`}>
                 {!isTurned ? (
                     <>
-                        <h2 className="title">{name}</h2>
+                        <h2 className="title title--centered">{name}</h2>
                         <div className="card__pic-section">
                             <img
                                 src={cover}

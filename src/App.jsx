@@ -1,6 +1,6 @@
 /* npm run dev */
 // TODO Large image with click
-// TODO Filters (price cop and usd, alphabetical, number of players, etc.)
+// TODO Filters and orders (price cop and usd, alphabetical, number of players, etc.)
 import Cards from "./Cards.jsx";
 import Header from "./Header.jsx";
 
