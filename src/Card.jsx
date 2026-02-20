@@ -39,13 +39,12 @@ export default function Card({ game }) {
                                 >
                                     <img
                                         className="icon"
-                                        src="./src/assets/group-users.png"
+                                        src="/group-users.png"
                                         alt="Group of people icon"
                                     />
                                     {playersNumber}
                                 </span>
                                 <div className="card__small-section">
-                                    {/*<p>Precio 💵:</p>*/}
                                     <p title="Precio en dólares">
                                         💰 🇺🇸 $
                                         {new Intl.NumberFormat("es").format(
