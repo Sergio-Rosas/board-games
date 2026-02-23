@@ -42,6 +42,43 @@ header {
     box-shadow: -3px 3px 10px hsl(0deg 0% 80%);
 }
 
+.menu {
+    position: absolute;
+    inset-inline-end: 20px;
+    inset-block-start: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.menu__pop-up {
+    inline-size: 180px;
+    padding: 20px 15px;
+    position: absolute;
+    inset-inline-end: 0;
+    list-style-type: none;
+
+    background-color: hsl(0deg 100% 100%);
+    border: 1px solid lightgray;
+    box-shadow: -3px 3px 10px hsl(0deg 0% 80%);
+    border-radius: 10px;
+
+    font-size: 0.87rem;
+    text-align: left;
+}
+
+.menu__pop-up__option:not(:last-of-type) {
+    margin-block-end: 8px;
+}
+
+.menu__pop-up__option:first-of-type {
+    font-weight: 700;
+    border-block-end: 1px solid black;
+}
+
+.menu__pop-up__option--selected {
+    font-weight: 700;
+}
+
 .title {
     margin-block-end: 10px;
 }
