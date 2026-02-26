@@ -9,7 +9,7 @@ export default function Header({optionsList, setOption, selectedOption}) {
             <h1>Juegos de Mesa</h1>
             <div className="menu">
                 <img src="/menu.svg" alt="Menu icon" onClick={() => setVisible(!visible)}/>
-                {!visible && <FloatingMenu optionsList={optionsList} setOption={setOption} selectedOption={selectedOption} onSetVisibility={setVisible}/>}
+                {visible && <FloatingMenu optionsList={optionsList} setOption={setOption} selectedOption={selectedOption} onSetVisibility={setVisible}/>}
             </div>
         </header>
     );

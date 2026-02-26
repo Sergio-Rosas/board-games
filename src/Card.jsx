@@ -51,7 +51,7 @@ export default function Card({ game }) {
                                             price,
                                         )}
                                     </p>
-                                    {copPrice !== "-" && (
+                                    {copPrice !== "0" && (
                                         <p title="Precio en pesos">
                                             💰 🇨🇴 $
                                             {new Intl.NumberFormat("es").format(

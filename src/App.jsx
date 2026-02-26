@@ -2,6 +2,7 @@
 // TODO Large image with click.
 // TODO Button to go up.
 // TODO Sort direction descending.
+// TODO Close menu if click outside.
 import { useState } from "react";
 
 import Cards from "./Cards.jsx";
